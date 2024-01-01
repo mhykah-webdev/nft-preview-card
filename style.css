@@ -1,0 +1,214 @@
+:root {
+    --clr-soft-blue: #8BACD9;
+    --clr-white: #FFF;
+    --clr-cyan: #00FFF8;
+    --clr-very-dark-blue-main: #0D192C;
+    --clr-very-dark-blue-card: #15263F;
+    --clr-very-dark-blue-line: #2E405A;
+
+    --ft-heading: 600 22px 'Outfit', sans-serif;
+    --ft-body: 300 18px 'Outfit', sans-serif;
+    --ft-caption: 400 16px 'Outfit', sans-serif;
+    --ft-caption-bold: 600 16px 'Outfit', sans-serif;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+
+body {
+    font: var(--ft-body);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: var(--clr-very-dark-blue-main);
+    color: var(--clr-soft-blue);
+}
+
+.nft-card {
+    display: grid;
+    gap: 1em;
+    background-color: var(--clr-very-dark-blue-card);
+    max-width: 350px;
+    padding: 1.5em;
+    margin: 1.5em;
+    border-radius: 1em;
+}
+
+.nft-card picture {
+    position: relative;
+    display: inline-block;
+}
+
+.nft-card picture::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-cyan);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    border-radius: 0.5em;
+}
+
+.nft-card picture:hover::before {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.nft-card picture .nft-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+}
+
+.nft-card picture .view-overlay-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.nft-card picture:hover .view-overlay-image {
+    opacity: 1;
+}
+
+.blurb {
+    display: grid;
+    gap: 1em;
+}
+
+h1 {
+    font: var(--ft-heading);
+    color: var(--clr-white);
+}
+
+.price-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-time img {
+    max-width: 100%;
+    align-self: center;
+}
+
+.price-time .flex-group {
+    display: flex;
+    align-self: center;
+    gap: 0.5em;
+    font: var(--ft-caption);
+}
+
+.price-time span {
+    font: var(--ft-caption-bold);
+    color: var(--clr-cyan);
+}
+
+hr {
+    border: 0.1px solid var(--clr-very-dark-blue-line);
+}
+
+.creator {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font: var(--ft-caption);
+}
+
+.creator img {
+    height: 33px;
+    border: 1px solid var(--clr-white);
+    border-radius: 50%;
+}
+
+.creator span {
+    color: var(--clr-white);
+}
+
+.hoverable:hover {
+    color: var(--clr-cyan);
+    cursor: pointer;
+}
+
+.hoverable {
+    transition: color 0.15s ease;
+
+}
