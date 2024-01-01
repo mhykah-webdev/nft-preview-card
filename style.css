@@ -97,7 +97,7 @@ body {
 
 .nft-card {
     display: grid;
-    gap: 1em;
+    gap: 1.2em;
     background-color: var(--clr-very-dark-blue-card);
     max-width: 350px;
     padding: 1.5em;
@@ -151,7 +151,7 @@ body {
 
 .blurb {
     display: grid;
-    gap: 1em;
+    gap: 1.2em;
 }
 
 h1 {
